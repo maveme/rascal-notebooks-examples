@@ -16,8 +16,8 @@ RUN chown -R ${NB_UID} /root/
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-RUN mkdir ${WORKSPACE}
-WORKDIR ${WORKSPACE}
+# RUN mkdir ${WORKSPACE}
+WORKDIR ${HOME}
 
 
 #CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
