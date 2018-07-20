@@ -15,6 +15,8 @@ RUN chown -R ${NB_UID} /root/
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
+WORKDIR ${HOME}
+
 
 #CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
 CMD ["sudo","jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
