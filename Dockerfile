@@ -6,14 +6,14 @@ ENV HOME /home/${NB_USER}
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
-    --uid 1000 \
-    mauricio
+    --uid ${NB_UID} \
+    ${NB_USER}
 
-COPY . /home/mauricio
+COPY . ${HOME}
 USER root
-RUN chown -R 1000 /home/mauricio
-USER mauricio
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
 
 
-CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
-# CMD ["sudo","jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
+#CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
+CMD ["sudo","jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
