@@ -11,9 +11,12 @@ RUN adduser --disabled-password \
 
 COPY . ${HOME}
 USER root
+RUN chown -R ${NB_UID} /root/
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
 
 #CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
 CMD ["sudo","jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
+
+
